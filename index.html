@@ -63,7 +63,9 @@
           return json;
         } catch (e) {
           console.log(e);
+          return e;
         }
+        return json;
       }
       xhr.send();
     }
