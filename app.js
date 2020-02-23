@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 /*
   Routes
 */
-const Bin = require('Bin');
+const Bin = require('app/Bin');
 
 // Get all Bins
 app.get('/Bins', async function(req,res) {
