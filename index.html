@@ -27,8 +27,6 @@
     // Creates the Map
     function initMap() {
       // The location of Uluru
-      var json = getBins();
-
       var uluru = {lat: -25.344, lng: 131.036};
       // The map, centered at Uluru
       var map = new google.maps.Map(
@@ -43,6 +41,7 @@
         });
 
         // Go through Json objects and making them as markers
+        var json = getBins();
         json.forEach(function(object) {
           var bin = new google.maps.Marker({
             position: {
