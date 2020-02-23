@@ -41,7 +41,6 @@
         });
 
         // Go through Json objects and making them as markers
-
         getBins().forEach(function(object) {
           var bin = new google.maps.Marker({
             position: {
@@ -61,7 +60,6 @@
       xhr.onload = function() {
         try {
           var json = JSON.parse(xhr.responseText);
-          console.log(json);
           return json;
         } catch (e) {
           console.log(e);
