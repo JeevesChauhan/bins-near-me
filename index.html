@@ -41,8 +41,8 @@
         });
 
         // Go through Json objects and making them as markers
-        var json = getBins();
-        json.forEach(function(object) {
+
+        getBins().forEach(function(object) {
           var bin = new google.maps.Marker({
             position: {
               lat: object.lat,
