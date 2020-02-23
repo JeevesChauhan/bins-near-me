@@ -23,7 +23,7 @@ const Bin = require('/app/Bin')
 app.get('/Bins', async function(req,res) {
   try{
     const bins = await Bin.find();
-    res.json({status: "200"});
+    res.json(bins);
   } catch(e) {
     res.json({message: e});
   }
@@ -49,7 +49,7 @@ app.post('/Bin', async function(req, res) {
 app.get('/Bin/:id', async function(req, res) {
   try {
     const bin = await Bin.findById(req.params.id);
-    res.json({status: "200"});
+    res.json(bin);
   } catch (e) {
     res.json({message: e});
   }
