@@ -4,9 +4,10 @@ let port = process.env.PORT
 if (port == "" || port == null) {
   port = 3000;
 }
+const Bin = require('Bin');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const Bin = require('models/Bin');
+
 
 require('dotenv/config');
 
