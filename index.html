@@ -40,10 +40,20 @@
           map: map
         });
 
+        var url = "https://bins-near-me.herokuapp.com/Bins"; // Should use dotenv
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.onload = function() {
+          try {
+            var json = JSON.parse(xhr.responseText);
+            console.log(json);
+          } catch (e) {
+            return e;
+          }
+        }
+        xhr.send();
+
         // Go through Json objects and making them as markers
-        console.log(getBins());
-        var Rjson = getBins();
-        var json = JSON.parse(Rjson);
         json.forEach(function(object) {
           var bin = new google.maps.Marker({
             position: {
@@ -62,10 +72,8 @@
       xhr.open("GET", url);
       xhr.onload = function() {
         try {
-          var returnJson = xhr.responseText;
           var json = JSON.parse(xhr.responseText);
-          console.log(returnJson);
-          return returnJson;
+          console.log(json);
         } catch (e) {
           return e;
         }
