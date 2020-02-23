@@ -5,18 +5,34 @@
   <meta charset="utf-8">
   <title>Bins near me</title>
 </head>
-
+<style media="screen">
+  * {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+</style>
 <body>
   <h1> looking for a bin brah? </h1>
   <button type="button" name="button" onclick="getBins();">Get bins</button>
   <button type="button" name="button" onclick="getBin('5e51a9184c3cf91a345c547a');">Get bin</button>
 
-  <script type="text/javascript">
-
+  <div id="map">
+  <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {
+            lat: 51.243325,
+            lng: -0.589844
+          },
+          zoom: 17,
+        });
+      }
 
     // GET ALL BINS
     function getBins() {
-      var url = "https://bins-near-me.herokuapp.com/Bins";
+      var url = "https://bins-near-me.herokuapp.com/Bins"; // Should use dotenv
       const xhr = new XMLHttpRequest();
       xhr.open("GET", url);
       xhr.onload = function() {
@@ -32,7 +48,7 @@
 
     // GET SPECIFIC BIN
     function getBin(id) {
-      var url = "https://bins-near-me.herokuapp.com/Bin/".concat(id);
+      var url = "https://bins-near-me.herokuapp.com/Bin/".concat(id); // should use dotenv
       const xhr = new XMLHttpRequest();
       xhr.open("GET", url);
       xhr.onload = function() {
@@ -45,7 +61,8 @@
       }
       xhr.send();
     }
-  </script>
+</script>
+    <script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrhRDJEA0WXvfgGTcbIxgdOEO2w9u-i4g&callback=initMap"></script>
 </body>
 
 </html>
