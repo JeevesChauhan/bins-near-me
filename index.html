@@ -42,7 +42,8 @@
 
         // Go through Json objects and making them as markers
         console.log(getBins());
-        var json = JSON.parse(getBins());
+        var Rjson = getBins();
+        var json = JSON.parse(Rjson);
         json.forEach(function(object) {
           var bin = new google.maps.Marker({
             position: {
@@ -64,10 +65,8 @@
           var returnJson = xhr.responseText;
           var json = JSON.parse(xhr.responseText);
           console.log(returnJson);
-          console.log(returnJson);
           return returnJson;
         } catch (e) {
-          console.log(e);
           return e;
         }
       }
