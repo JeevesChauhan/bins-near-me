@@ -16,25 +16,23 @@
     width: 800px;
     height: 800px;
   }
-
-  div {
-    position: absolute;
-  }
 </style>
 <body>
   <h1> looking for a bin, brah? </h1>
+  <div class="form">
+    <input type="text" name="lat" value="0" id="lat">
+    <input type="text" name="long" value="0" id="long">
+    <input type="hidden" name="postcode" value="gu27sy" id="postcode">
+    <input type="hidden" name="type" value="bin" id="type">
+    <button type="button" name="button" onclick="postBin();">Found Bin</button>
+  </div>
+  <br>
   <button type="button" name="button" onclick="getBins();">Get bins</button>
   <button type="button" name="button" onclick="getBin('5e51a9184c3cf91a345c547a');">Get bin</button>
-
+  <br>
   <div id="map" style="margin:auto;"><div>
 
-    <div class="form">
-      <input type="text" name="lat" value="0" id="lat">
-      <input type="text" name="long" value="0" id="long">
-      <input type="hidden" name="postcode" value="gu27sy" id="postcode">
-      <input type="hidden" name="type" value="bin" id="type">
-      <button type="button" name="button" onclick="postBin();">Found Bin</button>
-    </div>
+
 
   <script>
 
