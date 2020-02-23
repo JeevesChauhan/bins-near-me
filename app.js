@@ -6,7 +6,7 @@ if (port == "" || port == null) {
 }
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const Bin = require('../bin-project/models/Bin');
+const Bin = require('bin-project/models/Bin');
 
 require('dotenv/config');
 
