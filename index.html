@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Bins near me</title>
-  </head>
-  <body>
-    <p> looking for a bin brah? </p>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Bins near me</title>
+</head>
+
+<body>
+  <h1> looking for a bin brah? </h1>
+  <button type="button" name="button" onclick="getBins();">Get bins</button>
+
+  <script type="text/javascript">
+    function getBins() {
+      var url = "binsnear.me";
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", url);
+      xhr.onload = function() {
+        try {
+          var json = JSON.parse(xhr.responseText);
+          console.log(json);
+        } catch (e) {
+          console.log("Could not load bookings");
+        }
+      }
+      xhr.send();
+    }
+  </script>
+</body>
+
 </html>
