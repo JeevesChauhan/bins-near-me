@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+// About the ports for both Local and Heroku
 let port = process.env.PORT
 if (port == "" || port == null) {
   port = 3000;
@@ -15,7 +16,19 @@ require('dotenv/config');
 app.use(bodyParser.json());
 
 /*
-  Routes
+  Route for main html file
+*/
+
+app.get('/', async function(req, res) {
+  try {
+    const file = await res.sendFile('index.html', {root: __dirname });
+  } catch (e) {
+    res.json({error: e});
+  }
+})
+
+/*
+  Routes For the Bin Api
 */
 const Bin = require('/app/Bin')
 
