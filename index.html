@@ -11,19 +11,23 @@
   <button type="button" name="button" onclick="getBins();">Get bins</button>
 
   <script type="text/javascript">
-  
-  const express = require('express');
-  const app = express();
+
+
 
     function getBins() {
-      app.get('/Bins', async function(req,res) {
-        try{
-          const bins = await Bin.find();
-          res.json(bins);
-        } catch(e) {
-          res.json({message: e});
+      var url = "binsnear.me";
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", url);
+      xhr.onload = function() {
+        try {
+          var json = xhr.responseText;
+          console.log(json);
+        } catch (e) {
+          console.log("failed");
         }
-      });
+      }
+      xhr.send();
+    }
   </script>
 </body>
 
