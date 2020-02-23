@@ -23,6 +23,12 @@
   <button type="button" name="button" onclick="getBin('5e51a9184c3cf91a345c547a');">Get bin</button>
 
   <div id="map" style="margin:auto;"><div>
+
+  <input type="text" name="lat" value="0" id="lat">
+  <input type="text" name="long" value="0" id="long">
+  <input type="hidden" name="postcode" value="gu27sy" id="postcode">
+  <input type="hidden" name="type" value="bin" id="type">
+  <button type="button" name="button" onclick="postBin();">Found Bin</button>
   <script>
 
     var map;
@@ -102,6 +108,22 @@
         }
       }
       xhr.send();
+    }
+
+    // POSTS a bin
+    function postBin() {
+      const data = {};
+        data.lat = document.getElementById('lat').value;
+        data.long = document.getElementById('long').value;
+        data.type = document.getElementById('type').value;
+        data.postcode = document.getElementById('postcode').value;
+      var url = "https://bins-near-me.herokuapp.com/Bin/";
+      const json = JSON.stringify(data);
+      console.log(data);
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", url);
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.send(json);
     }
 </script>
 
