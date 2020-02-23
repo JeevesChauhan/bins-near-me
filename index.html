@@ -16,6 +16,10 @@
     width: 800px;
     height: 800px;
   }
+
+  .form {
+    margin-top: 500px;
+  }
 </style>
 <body>
   <h1> looking for a bin, brah? </h1>
@@ -24,11 +28,14 @@
 
   <div id="map" style="margin:auto;"><div>
 
-  <input type="text" name="lat" value="0" id="lat">
-  <input type="text" name="long" value="0" id="long">
-  <input type="hidden" name="postcode" value="gu27sy" id="postcode">
-  <input type="hidden" name="type" value="bin" id="type">
-  <button type="button" name="button" onclick="postBin();">Found Bin</button>
+    <div class="form">
+      <input type="text" name="lat" value="0" id="lat">
+      <input type="text" name="long" value="0" id="long">
+      <input type="hidden" name="postcode" value="gu27sy" id="postcode">
+      <input type="hidden" name="type" value="bin" id="type">
+      <button type="button" name="button" onclick="postBin();">Found Bin</button>
+    </div>
+
   <script>
 
     var map;
