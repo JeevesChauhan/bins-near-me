@@ -62,6 +62,7 @@
         try {
           var returnJson = xhr.responseText;
           var json = JSON.parse(xhr.responseText);
+          console.log(returnJson);
           return returnJson;
         } catch (e) {
           console.log(e);
