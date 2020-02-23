@@ -13,20 +13,22 @@
   }
 
   #map {
-    width: 400px;
-    height: 400px;
+    width: 800px;
+    height: 800px;
   }
 </style>
 <body>
-  <h1> looking for a bin brah? </h1>
+  <h1> looking for a bin, brah? </h1>
   <button type="button" name="button" onclick="getBins();">Get bins</button>
   <button type="button" name="button" onclick="getBin('5e51a9184c3cf91a345c547a');">Get bin</button>
 
-  <div id="map"><div>
+  <div id="map" style="margin:auto;"><div>
   <script>
     // Creates the Map
     function initMap() {
       // The location of Uluru
+      var json = getBins();
+
       var uluru = {lat: -25.344, lng: 131.036};
       // The map, centered at Uluru
       var map = new google.maps.Map(
@@ -38,6 +40,17 @@
       var marker = new google.maps.Marker({
           position: uluru,
           map: map
+        });
+
+        // Go through Json objects and making them as markers
+        json.forEach(function(object) {
+          var oject.id = new google.maps.Marker({
+            position: {
+              lat: object.lat,
+              lng: object.long
+            },
+            map: map
+          });
         });
     }
 
@@ -55,6 +68,7 @@
         }
       }
       xhr.send();
+      return json;
     }
 
     // GET SPECIFIC BIN
