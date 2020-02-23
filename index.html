@@ -11,24 +11,36 @@
     padding: 0;
     text-align: center;
   }
+
+  #map {
+    width: 400px;
+    height: 400px;
+  }
 </style>
 <body>
   <h1> looking for a bin brah? </h1>
   <button type="button" name="button" onclick="getBins();">Get bins</button>
   <button type="button" name="button" onclick="getBin('5e51a9184c3cf91a345c547a');">Get bin</button>
 
-  <div id="map">
+  <div id="map"><div>
   <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {
-            lat: 51.243325,
-            lng: -0.589844
-          },
-          zoom: 17,
+    // Creates the Map
+    function initMap() {
+      // The location of Uluru
+      var uluru = {lat: -25.344, lng: 131.036};
+      // The map, centered at Uluru
+      var map = new google.maps.Map(
+        document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
         });
-      }
+      // The marker, positioned at Uluru
+      var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+}
+    }
 
     // GET ALL BINS
     function getBins() {
@@ -62,7 +74,12 @@
       xhr.send();
     }
 </script>
-    <script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrhRDJEA0WXvfgGTcbIxgdOEO2w9u-i4g&callback=initMap"></script>
+
+<!-- Google Map API -->
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrhRDJEA0WXvfgGTcbIxgdOEO2w9u-i4g&callback=initMap">
+</script>
+
 </body>
 
 </html>
