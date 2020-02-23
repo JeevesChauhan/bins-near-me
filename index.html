@@ -62,8 +62,8 @@
     function doWithBins(json) {
       json.forEach(function(object) {
         console.log(object._id);
-        console.log(object.lat.numberDecimal);
-        console.log(object.long.numberDecimal);
+        console.log(object.lat.$numberDecimal);
+        console.log(object.long.$numberDecimal);
         console.log(object.postcode);
       });
 
