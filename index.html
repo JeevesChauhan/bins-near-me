@@ -47,7 +47,7 @@
     // Function to create a marker
     function addMarkers(json){
       json.forEach(function(object) {
-        var pos = {lat: object.lat.$numberDecimal, lng: object.long.$numberDecimal};
+        var pos = {lat: parseFloat(object.lat.$numberDecimal), lng: parseFloat(object.long.$numberDecimal)};
         var marker = new google.maps.Marker({
             position: pos,
             map: map
