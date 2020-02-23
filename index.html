@@ -60,7 +60,6 @@
       xhr.onload = function() {
         try {
           var json = JSON.parse(xhr.responseText);
-          return json;
         } catch (e) {
           console.log(e);
           return e;
