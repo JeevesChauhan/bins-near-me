@@ -20,7 +20,7 @@
       xhr.open("GET", url);
       xhr.onload = function() {
         try {
-          var json = xhr.responseText;
+          var json = JSON.xhr.responseText;
           console.log(json);
         } catch (e) {
           console.log("failed");
