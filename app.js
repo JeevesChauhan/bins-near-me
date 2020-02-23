@@ -8,11 +8,12 @@ if (port == "" || port == null) {
 
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+const cors = require('cors');
 
 require('dotenv/config');
 
 // Middleware (execute when a route is being hit, normally for authentication)
+app.use(cors());
 app.use(bodyParser.json());
 
 /*
