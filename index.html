@@ -9,13 +9,30 @@
 <body>
   <h1> looking for a bin brah? </h1>
   <button type="button" name="button" onclick="getBins();">Get bins</button>
+  <button type="button" name="button" onclick="getBin("5e51a9184c3cf91a345c547a");">Get bin</button>
 
   <script type="text/javascript">
 
 
-
+    // GET ALL BINS
     function getBins() {
       var url = "https://bins-near-me.herokuapp.com/Bins";
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", url);
+      xhr.onload = function() {
+        try {
+          var json = JSON.parse(xhr.responseText);
+          console.log(json);
+        } catch (e) {
+          console.log(e);
+        }
+      }
+      xhr.send();
+    }
+
+    // GET SPECIFIC BIN
+    function getBin(var id) {
+      var url = "https://bins-near-me.herokuapp.com/Bin/".concat(id);
       const xhr = new XMLHttpRequest();
       xhr.open("GET", url);
       xhr.onload = function() {
