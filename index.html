@@ -26,7 +26,6 @@
   <script>
     // Creates the Map
     function initMap() {
-      var json = null;
       // The location of Uluru
       var uluru = {lat: -25.344, lng: 131.036};
       // The map, centered at Uluru
@@ -40,30 +39,6 @@
           position: uluru,
           map: map
         });
-
-        var url = "https://bins-near-me.herokuapp.com/Bins"; // Should use dotenv
-        const xhr = new XMLHttpRequest();
-        xhr.open("GET", url);
-        xhr.onload = function() {
-          try {
-            var json = JSON.parse(xhr.responseText);
-            console.log(json);
-          } catch (e) {
-            return e;
-          }
-        }
-        xhr.send();
-
-        // Go through Json objects and making them as markers
-        json.forEach(function(object) {
-          var bin = new google.maps.Marker({
-            position: {
-              lat: object.lat,
-              lng: object.long
-            },
-            map: map
-          });
-        });
     }
 
     // GET ALL BINS
@@ -74,6 +49,7 @@
       xhr.onload = function() {
         try {
           var json = JSON.parse(xhr.responseText);
+          doWithBins(json);
           console.log(json);
         } catch (e) {
           return e;
@@ -81,6 +57,18 @@
       }
       xhr.send();
     }
+
+    // PUT ALL BINS in something
+    function doWithBins(json) {
+      json.forEach(function(object) {
+        console.log(object._id);
+        console.log(object.lat);
+        console.log(object.long);
+        console.log(object.postcode);
+      });
+
+    }
+
 
     // GET SPECIFIC BIN
     function getBin(id) {
