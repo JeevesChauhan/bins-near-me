@@ -4,7 +4,7 @@ let port = process.env.PORT
 if (port == "" || port == null) {
   port = 3000;
 }
-const Bin = require('Bin');
+
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 /*
   Routes
 */
+const Bin = require('Bin');
 
 // Get all Bins
 app.get('/Bins', async function(req,res) {
