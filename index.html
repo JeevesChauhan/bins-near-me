@@ -24,12 +24,14 @@
 
   <div id="map" style="margin:auto;"><div>
   <script>
+
+    var map;
     // Creates the Map
     function initMap() {
       // The location of Uluru
       var surrey = {lat: 51.243297, lng: -0.590127};
       // The map, centered at Uluru
-      var map = new google.maps.Map(
+      map = new google.maps.Map(
         document.getElementById('map'), {
           zoom: 16,
           center: surrey
@@ -40,10 +42,17 @@
           map: map
         });
 
-        const json = getBins();
-        json.forEach(function(object) {
-          // jsldkjflsd
-        })
+    }
+
+    // Function to create a marker
+    function addMarkers(json){
+      json.forEach(function(object) {
+        var pos = {lat: object.lat.$numberDecimal, lng: object.long.$numberDecimal};
+        var marker = new google.maps.Marker({
+            position: pos,
+            map: map
+          })
+      });
     }
 
     // GET ALL BINS
@@ -56,7 +65,7 @@
           var json = JSON.parse(xhr.responseText);
           doWithBins(json);
           console.log(json);
-          return json;
+          addMarkers(json);
         } catch (e) {
           return e;
         }
